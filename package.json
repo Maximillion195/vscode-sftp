@@ -1,8 +1,8 @@
 {
   "name": "sftp",
-  "displayName": "SFTP",
+  "displayName": "SFTP - Custom",
   "description": "SFTP/FTP sync",
-  "version": "1.16.2",
+  "version": "1.16.3",
   "publisher": "Natizyskunk",
   "author": "Natizyskunk <natan.fourie@hotmail.fr> (https://github.com/Natizyskunk)",
   "engines": {
@@ -97,6 +97,16 @@
       {
         "command": "sftp.upload.file",
         "title": "Upload File",
+        "category": "SFTP"
+      },
+      {
+        "command": "sftp.checkout.file",
+        "title": "Checkout File",
+        "category": "SFTP"
+      },
+      {
+        "command": "sftp.checkIn.file",
+        "title": "Check In File",
         "category": "SFTP"
       },
       {
@@ -318,6 +328,14 @@
           "when": "false"
         },
         {
+          "command": "sftp.checkout.file",
+          "when": "false"
+        },
+        {
+          "command": "sftp.checkIn.file",
+          "when": "false"
+        },
+        {
           "command": "sftp.upload.changedFiles",
           "when": "sftp.enabled"
         },
@@ -410,6 +428,11 @@
           "when": "sftp.enabled && !explorerResourceIsRoot && !explorerResourceIsFolder"
         },
         {
+          "command": "sftp.checkIn.file",
+          "group": "sftp.trans@1",
+          "when": "sftp.enabled && !explorerResourceIsRoot && !explorerResourceIsFolder"
+        },
+        {
           "command": "sftp.upload.folder",
           "group": "sftp.trans@1",
           "alt": "sftp.forceUpload",
@@ -497,6 +520,11 @@
         },
         {
           "command": "sftp.upload.file",
+          "group": "3_trans@1",
+          "when": "view == remoteExplorer && viewItem != root && viewItem == file"
+        },
+        {
+          "command": "sftp.checkout.file",
           "group": "3_trans@1",
           "when": "view == remoteExplorer && viewItem != root && viewItem == file"
         },
